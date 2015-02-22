@@ -1,0 +1,116 @@
+﻿@model HealthProfilingSystem.Models.Doctor
+
+@{
+    ViewBag.Title = "Add Doctor";
+}
+<link rel="stylesheet" href="~/Content/loginstyle.css" type="text/css">
+    
+<div class="main">
+    <div class="header">
+
+    </div>
+    <p style="color:green">@TempData["doctoradded"]</p>
+
+    @using (Html.BeginForm("ConfirmAddDoctor", "Admin", FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        <ul class="left-form">
+
+            <li>
+                @Html.TextBoxFor(model => model.Name, new { placeholder = "Full Name", required = "required" })
+
+                <a href="#" class="icon ticker"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                @Html.TextBoxFor(model => model.NIC, new { placeholder = "NIC", required = "required" })
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="email" placeholder="Email" name="Email" required />
+                <a href="#" class="icon ticker"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Phone Number" name="Phone" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Address" name="Address" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Qualification" name="Qualification" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Specialization" name="Specialization" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Username" id="Username" name="Username" required />
+                <a href="#" class="icon into"> </a>
+                
+                <div class="clear"> </div>
+            </li>
+            
+            <p id="green" style="color:green"></p>
+            <p id="red" style="color:red"></p>
+            
+            <li>
+                <input type="password" placeholder="Password" name="Password" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+
+            @Html.LabelFor(model => model.Image)
+            <br />
+            <input type="file" name="Image" required />
+            <a href="#" class="icon into"> </a>
+            <div class="clear"> </div>
+
+            <input type="submit" onclick="" value="Add">
+            <div class="clear"> </div>
+        </ul>
+    }
+    <form>
+        <ul class="right-form">
+
+            <div class="clear"> </div>
+        </ul>
+        <div class="clear"> </div>
+
+    </form>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        $(document).ready(function () {
+
+            $('#red').hide();
+            $('#green').hide();
+
+            $('#Username').change(function () {
+
+                $('#red').hide();
+                $('#green').hide();
+                var userName = $('#Username').val();
+                $.getJSON("/Admin/CheckUserName?UserName=" + userName, function (data) {
+                    if (data) {
+                        $('#green').hide();
+                        $('#red').show();
+                        $('#red').text("Username already taken");
+                    }
+                    else {
+                        $('#green').show();
+                        $('#red').hide();
+                        $('#green').text("Username available");
+                    }
+                });
+            });
+        });
+    </script>
+</div>

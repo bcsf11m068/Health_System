@@ -1,0 +1,67 @@
+﻿@model HealthProfilingSystem.Models.Doctor
+
+@{
+    ViewBag.Title = "Edit Doctor Information";
+}
+<link rel="stylesheet" href="~/Content/loginstyle.css" type="text/css">
+
+<div class="main">
+    <div class="header">
+
+    </div>
+    <form method="post" action="/Admin/ConfirmEditDoctor/@Model.Id">
+
+        <ul class="left-form">
+
+            <li>
+                @Html.TextBoxFor(model => model.Name, new { placeholder = "Full Name", required = "required", value = @Model.Name})
+
+                <a href="#" class="icon ticker"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                @Html.TextBoxFor(model => model.NIC, new { placeholder = "NIC", required = "required", value = @Model.NIC })
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="email" placeholder="Email" name="Email" value="@Model.Email" required />
+                <a href="#" class="icon ticker"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Phone Number" name="Phone" value="@Model.Phone" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Address" name="Address" value="@Model.Address" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Qualification" name="Qualification" value="@Model.Qualification" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Specialization" name="Specialization" value="@Model.Specialization" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+
+
+            <input type="submit" onclick="" value="Update Information">
+            <div class="clear"> </div>
+        </ul>
+    </form>
+    <form>
+        <ul class="right-form">
+
+            <div class="clear"> </div>
+        </ul>
+        <div class="clear"> </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Search Doctor";
+}
+
+<style>
+    .glowing-border {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+    width: 250px;
+    height: 25px;
+    }
+
+    .glowing-border:focus { 
+        outline: none;
+        border-color: #9ecaed;
+        box-shadow: 0 0 10px #9ecaed;
+    }
+
+    #submit {
+         color: #fff;
+         font-size: 10;
+         color: black;
+         width: 100px;
+         height: 30px;
+         border: none;
+         margin: 0;
+         padding: 0;
+    }
+</style>
+
+<h2 style="margin-left:15%">Search Doctor</h2>
+<form style="margin-left:15%">
+    <input type="text" class="glowing-border" />
+    <input type="submit" value="Search By Name" id="submit"/>
+</form>
+<div class="clear">
+    <p></p>
+</div>
+<form style="margin-left:15%">
+    <input type="text" class="glowing-border" />
+    <input type="submit" value="Search By Id" id="submit"/>
+</form>
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+
+</script>

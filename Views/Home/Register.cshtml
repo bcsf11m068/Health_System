@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Register your request to join the System";
+}
+<link rel="stylesheet" href="~/Content/loginstyle.css" type="text/css">
+<div class="main">
+    <div class="header">
+        <h1>@ViewBag.Title</h1>
+    </div>
+    <form>
+        <ul class="left-form">
+            <h2>Account Request</h2>
+            <li>
+                <input type="text" placeholder="Full Name" required />
+                <a href="#" class="icon ticker"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="email" placeholder="Email" required />
+                <a href="#" class="icon ticker"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="NIC" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="text" placeholder="Suggested Username" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="password" placeholder="Suggested Password" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <input type="submit" onclick="myFunction()" value="Submit Request">
+            <div class="clear"> </div>
+        </ul>
+    </form>
+
+    <h2>Register</h2>
+

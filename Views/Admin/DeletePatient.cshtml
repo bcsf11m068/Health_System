@@ -1,0 +1,49 @@
+﻿@model HealthProfilingSystem.Models.Patient
+@{
+    ViewBag.Title = "Delete Patient";
+}
+<link rel="stylesheet" href="~/Content/loginstyle.css" type="text/css">
+
+
+
+<div class="main">
+    <div class="header">
+
+    </div>
+    <form method="post" action="/Admin/ConfirmDeletePatient/@Model.Id">
+        <ul class="left-form">
+            <h2>Confirm Delete</h2>
+            <li>
+                <strong>Patient's Id: </strong>  @Model.Id
+                <div class="clear"> </div>
+            </li>
+
+            <li>
+                Name: @Model.Name
+                <div class="clear"> </div>
+            </li>
+
+            <li>
+                <strong>NIC: </strong>  @Model.NIC
+                <div class="clear"> </div>
+            </li>
+
+            <li>
+                <input type="submit" value="Delete">
+            </li>
+
+            <div class="clear"> </div>
+        </ul>
+    </form>
+
+    <form>
+        <ul class="right-form">
+
+            <div class="clear"> </div>
+        </ul>
+        <div class="clear"> </div>
+
+    </form>
+
+</div>
+

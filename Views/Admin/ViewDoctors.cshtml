@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HealthProfilingSystem.Models.Doctor>
+@{
+    ViewBag.Title = "All Doctors";
+}
+
+<style>
+    .glowing-border {
+        border: 2px solid #dadada;
+        border-radius: 7px;
+        width: 250px;
+        height: 25px;
+    }
+
+        .glowing-border:focus {
+            outline: none;
+            border-color: #9ecaed;
+            box-shadow: 0 0 10px #9ecaed;
+        }
+
+    #submit {
+        color: #fff;
+        font-size: 10;
+        color: black;
+        width: 100px;
+        height: 30px;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<div style="margin-left:25%">
+    <h2 style="color:green"> @TempData["doctordeleted"]</h2>
+    <h2 style="color:green"> @TempData["doctoredited"]</h2>
+</div>
+
+<form style="margin-left:15%">
+    <input type="text" class="glowing-border" />
+    <input type="submit" value="Search By Name" id="submit" />
+</form>
+<div class="clear">
+    <p></p>
+</div>
+<form style="margin-left:15%">
+    <input type="text" class="glowing-border" />
+    <input type="submit" value="Search By Id" id="submit" />
+</form>
+
+
+<div style="margin-left:5%">
+    <h2>@ViewBag.Title</h2>
+    <table>
+        <tr>
+            <td><strong>ID</strong></td>
+            <td><strong>Name</strong></td>
+            <td><strong>NIC</strong></td>
+            <td><strong>Qualification</strong></td>
+            <td><strong>Specialization</strong></td>
+            <td><strong>Image</strong></td>
+        </tr>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.Id</td>
+                <td>@a.Name</td>
+                <td>@a.NIC</td>
+                <td>@a.Qualification</td>
+                <td>@a.Specialization</td>
+                <td><img src="~/Images/uploads/@a.Image" height="120px" width="120px" alt="Picture not available"/></td>
+                <td>@Html.ActionLink("Edit", "EditDoctor", "Admin", new { id = @a.Id }, null)</td>
+                <td>@Html.ActionLink("Delete", "DeleteDoctor", "Admin", new { id = @a.Id }, null)</td>
+                <td>@Html.ActionLink("View Profile", "", "", new { id = @a.Id }, null)</td>
+            </tr>
+        }
+    </table>
+</div>

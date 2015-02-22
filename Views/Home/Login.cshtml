@@ -1,0 +1,40 @@
+﻿@model HealthProfilingSystem.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+<link rel="stylesheet" href="~/Content/loginstyle.css" type="text/css">
+
+
+<div class="main">
+    <div class="header">
+        
+    </div>
+    <form method="post" action="/Home/AuthenticateUser">
+        <ul class="left-form">
+            <h2>Log In</h2>
+            <li>
+                <input type="text" placeholder="Username" name="Username" required />
+                
+                <div class="clear"> </div>
+            </li>
+            <li>
+                <input type="password" placeholder="Password" name="Password" required />
+                <a href="#" class="icon into"> </a>
+                <div class="clear"> </div>
+            </li>
+            <text style="color:red" id="errortext">@TempData["errormessage"]</text>
+            <br />
+            <input type="submit" value="Login">
+            <div class="clear"> </div>
+        </ul>
+    </form>
+    <form>
+        <ul class="right-form">
+            
+            <div class="clear"> </div>
+        </ul>
+        <div class="clear"> </div>
+
+    </form>
+
+</div>

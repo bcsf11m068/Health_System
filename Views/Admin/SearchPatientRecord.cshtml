@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "SearchPatientRecord";
+}
+
+<h2>SearchPatientRecord</h2>
+<p>@Model.Id</p>
+<p>@Model.Name</p>
+
+<button id="btn">Click Me</button>
+<p id="one"></p>
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+    $("#btn").click(function () {
+        $.getJSON("/Admin/Dummy?id=5", function (data) {
+            $("#one").text(data);
+            //$("#two").text(data.Name);
+            //$("#three").text(data.NIC);
+            //$("#four").text(data.Domicile);
+        });
+
+    });
+</script>
+

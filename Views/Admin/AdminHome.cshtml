@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Admin Home";
+}
+
+<div style="margin-left:20%">
+    <h2><u>Admin Menu</u></h2>
+    <br />
+    <h3><a href='@(Url.Action("ViewPatients", "Admin"))'><b>View All Patients</b></a><br /></h3>
+    <!--<h3><a href='@(Url.Action("SearchPatient", "Admin"))'><b>Search a Patient</b></a><br /></h3>-->
+    <h3><a href='@(Url.Action("AddPatient", "Admin"))'><b>Add New Patient</b></a><br /></h3>
+    <h3><a href='@(Url.Action("ViewDoctors", "Admin"))'><b>View All Doctors</b></a><br /></h3>
+    <!--<h3><a href='@(Url.Action("SearchDoctor", "Admin"))'><b>Search a Doctor</b></a><br /></h3>-->
+    <h3><a href='@(Url.Action("AddDoctor", "Admin"))'><b>Add New Doctor</b></a><br /></h3>
+</div>

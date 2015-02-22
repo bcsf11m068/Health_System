@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Search Patient";
+}
+
+<style>
+    .glowing-border {
+        border: 2px solid #dadada;
+        border-radius: 7px;
+        width: 250px;
+        height: 25px;
+    }
+
+    .glowing-border:focus {
+        outline: none;
+        border-color: #9ecaed;
+        box-shadow: 0 0 10px #9ecaed;
+    }
+
+    #submit {
+         color: #fff;
+         font-size: 10;
+         color: black;
+         width: 100px;
+         height: 30px;
+         border: none;
+         margin: 0;
+         padding: 0;
+    }
+</style>
+
+<h2 style="margin-left:15%">Search Patient</h2>
+
+<form style="margin-left:15%">
+    <input type="text" class="glowing-border"/>
+    <input type="submit" value="Search By Name" id="submit"/>
+</form>
+
+<div class="clear">
+    <p></p>
+</div>
+
+<form style="margin-left:15%" method="post" action="/Admin/SearchPatient">
+    <input type="text" name="id" class="glowing-border" />
+    <input type="submit" value="Search By Id" id="submit"/>
+</form>
+
+<div>
+    <table>
+        <tr>
+            <td><strong>ID</strong></td>
+            <td><strong>Name</strong></td>
+            <td><strong>NIC</strong></td>
+           
+            <td><strong>Domicile</strong></td>
+            <td><strong>Image</strong></td>
+        </tr>
+
+
+        <tr>
+            <td ><p id ="one"></p></td>
+            <td id="two"></td>
+            <td id="three"></td>
+            <td id="four"></td>
+            <td><img src="" height="120px" width="120px" alt="Picture not available" /></td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+
+    </table>
+</div>
+
+
+
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+    $(document).ready(function () {
+        $.getJSON("/Admin/SearchPatientRecord?id=5", function (data) {
+            //var dataaa = Json.
+            $("#one").text(data);
+            //$("#two").text(data.Name);
+            //$("#three").text(data.NIC);
+            //$("#four").text(data.Domicile);
+        });
+        /*$.ajax({
+            url: "/Admin/SearchPatientRecord/{5}",
+            type: "Get",
+            contenttype: "application/Json",
+            data: Json.stringfy(data)
+        });*/
+    });
+</script>
